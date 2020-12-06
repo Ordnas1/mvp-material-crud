@@ -11,6 +11,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // Core services
 import { FirebaseService } from './core/firebase/firebase.service';
+import { RootStoreModule } from './core/store';
+
+// debug
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +23,10 @@ import { FirebaseService } from './core/firebase/firebase.service';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    RootStoreModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    })
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent],

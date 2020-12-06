@@ -1,9 +1,4 @@
 <router-outlet></router-outlet>
 <ul>
-  <li *ngFor="let movie of movies$ | async">{{ movie.title }}</li>
+  <li *ngFor="let movie of movies$ | async">{{movie.title}}</li>
 </ul>
-
-<div *ngIf="(movie$ | async) as movie">
-
-  <p>{{ movie.title }}</p>
-</div>

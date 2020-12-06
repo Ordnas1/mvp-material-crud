@@ -3,6 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { IMovie } from 'src/shared/interfaces/movie';
 import { Observable } from 'rxjs';
 import { FirebaseService } from '../core/firebase/firebase.service';
+// Solo para probar ngrx
+import { Store } from '@ngrx/store';
+import {
+  RootStoreState,
+  MovieStoreActions,
+  MovieStoreSelectors,
+} from 'src/core/store';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +19,12 @@ import { FirebaseService } from '../core/firebase/firebase.service';
 export class AppComponent implements OnInit {
   title = 'movie-manager';
   movies$: Observable<IMovie[]>;
-  movie$: Observable<IMovie>;
-  constructor(private firebase: FirebaseService) {}
+
+  constructor(private store: Store<RootStoreState.State>) {}
 
   ngOnInit(): void {
-    this.movies$ = this.firebase.getCollection<IMovie>('movies');
-    this.movie$ = this.firebase.getDocument<IMovie>(
-      'movies',
-      '80L203WhHRYLkinr33lf'
-    );
-    this.firebase.destroyDocument<IMovie>('movies', 'adfPfFWfF9rXl2OXOGwj').then(res => console.log(res)).catch(err => console.log(err));
+    this.store.dispatch(MovieStoreActions.loadMovies());
+    this.movies$ = this.store.select(MovieStoreSelectors.getAllMovies);
+    console.log(this.movies$);
   }
 }

@@ -14,7 +14,7 @@ export class FirebaseService {
     return this.firestore.collection<T>(collection).valueChanges();
   }
   // Get doc
-  getDocument<T>(collection: string, id: string): Observable<T> {
+  getDocument<T>(collection: string, id: string | number): Observable<T> {
     return this.firestore.doc<T>(`/${collection}/${id}`).valueChanges();
   }
   // Create doc
@@ -22,11 +22,11 @@ export class FirebaseService {
     return this.firestore.collection(collection).add(data);
   }
   // Create or update doc
-  setDocument<T>(collection: string, id: string, data: T): Promise<void> {
+  setDocument<T>(collection: string, id: string | number, data: Partial<T>): Promise<void> {
     return this.firestore.doc<T>(`/${collection}/${id}`).update(data);
   }
   // Destroy doc
-  destroyDocument<T>(collection: string, id: string): Promise<void> {
+  destroyDocument<T>(collection: string, id: string | number): Promise<void> {
     return this.firestore.doc<T>(`/${collection}/${id}`).delete();
   }
 }
