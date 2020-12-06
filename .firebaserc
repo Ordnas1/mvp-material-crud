@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "movie-manager-4ea69": {
+      "hosting": {
+        "movie-manager": [
+          "movie-manager-4ea69"
+        ]
+      }
+    }
+  }
+}
