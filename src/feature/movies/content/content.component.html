@@ -1,0 +1,28 @@
+<mat-sidenav-container class="content">
+  <mat-sidenav
+    mode="side"
+    [opened]="sidenavOpened"
+    class="w-2/12 mat-elevation-z2"
+  >
+    <h2 class="mat-title text-center p-4">Dashboard</h2>
+    <mat-divider></mat-divider>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Movie Manager</mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="p-24">
+    <aside class="w-3/12 h-full p-3  mat-elevation-z1">
+      <header class="flex justify-between mb-4 items-center">
+        <h1 class="mat-h1 m-0">Movies</h1>
+        <button mat-raised-button color="primary">
+          <mat-icon>add</mat-icon>
+          Add
+        </button>
+      </header>
+
+      <mat-divider></mat-divider>
+      <app-list-movies></app-list-movies>
+    </aside>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
