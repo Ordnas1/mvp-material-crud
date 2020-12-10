@@ -11,7 +11,7 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content class="p-24">
-    <aside class="w-3/12 h-full p-3  mat-elevation-z1">
+    <aside class="w-3/12 h-full p-3  mat-elevation-z8">
       <header class="flex justify-between mb-4 items-center">
         <h1 class="mat-h1 m-0">Movies</h1>
         <button mat-raised-button color="primary">
@@ -20,6 +20,8 @@
         </button>
       </header>
 
+      <mat-divider></mat-divider>
+      <app-search-movies></app-search-movies>
       <mat-divider></mat-divider>
       <app-list-movies></app-list-movies>
     </aside>

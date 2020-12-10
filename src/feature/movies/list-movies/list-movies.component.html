@@ -1,7 +1,21 @@
 <mat-list>
-  <mat-list-item *ngFor="let movie of (movies$ | async)">
-    <mat-icon matListIcon [class]="{available: movie.isAvailable}" [class.not-available]="!movie.isAvailable">lens</mat-icon>
-    <h3 matLine>{{movie.title}}</h3>
-    <p matLine class="mat-caption">{{movie.releaseDate | date:'fullDate'}}</p>
+  <ng-container *ngFor="let movie of movies$ | async">
+    <mat-list-item *ngIf="isValidSearchResult(movie.title, movieSearch)" >
+
+      <mat-icon
+        matListIcon
+        [class]="{ available: movie.isAvailable }"
+        [class.not-available]="!movie.isAvailable"
+        >lens</mat-icon
+      >
+      <h3 matLine>{{ movie.title }}</h3>
+      <p matLine class="mat-caption">
+        {{ movie.releaseDate | date: "fullDate" }}
+      </p>
+
   </mat-list-item>
+  </ng-container>
+
+
+  {{ movieSearch }}
 </mat-list>

@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const MAT_MODULES = [
   MatButtonModule,
@@ -17,6 +19,8 @@ const MAT_MODULES = [
   MatRippleModule,
   MatDividerModule,
   MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
 ];
 
 @NgModule({

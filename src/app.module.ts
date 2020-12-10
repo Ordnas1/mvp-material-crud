@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FirebaseService } from './core/firebase/firebase.service';
 import { RootStoreModule } from './core/store';
 import { LocalStorageService } from './core/localstorage/local-storage.service';
+import { EventBusService } from './core/event-bus/event-bus.service';
+
 // Sharedb modules
 import { MaterialModule } from 'src/shared/material/material.module';
 
@@ -40,7 +43,7 @@ import { MoviesModule } from 'src/feature/movies/movies.module';
     MaterialModule,
     MoviesModule,
   ],
-  providers: [FirebaseService, LocalStorageService],
+  providers: [FirebaseService, LocalStorageService, EventBusService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
